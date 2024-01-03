@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 25px 0 15px;
+    background-color: lightgray;
+}
+
+.logo-container .logo{
+width: 100px;
+}
+.nav-Items > ul{
+    display: flex;
+    column-gap: 40px;
+}
+.nav-Items > ul > li{
+  list-style: none;
+  font-size: 20px;
+}
+.body{
+    padding:0 15px 0 15px;
+}
+.search{
+    padding: 20px 0;
+}
+.restaurent-container{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.res-card{
+    width: 200px;
+    height: 350px;
+    border: 2px solid lightgray;
+    padding: 10px;
+    border-radius: 8px;
+}
+.res-img{
+width: 100%;
+height: 150px;
+}
+.res-card:hover{
+    box-shadow: 0 0 10px #444444;
+    cursor: pointer;
+}

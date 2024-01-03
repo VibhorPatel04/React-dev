@@ -1,51 +1,83 @@
-// let heading = React.createElement("h1", {}, "Hello World!");
-let parent = [
-    React.createElement(
-        "div",
-        {
-          id: "parent1",
-        },
-        [
-          React.createElement(
-              "div",
-              {
-                id: "child1",
-              },
-              React.createElement("h1", {}, "i am h1 tag")
-            ),
-            React.createElement(
-              "div",
-              {
-                id: "child2",
-              },
-              React.createElement("h2", {}, "i am h2 tag")
-            )
-        ]
-        
-    ),
-    React.createElement(
-        "div",
-        {
-          id: "parent2",
-        },
-        [
-          React.createElement(
-              "div",
-              {
-                id: "child3",
-              },
-              React.createElement("h1", {}, "i am h3 tag")
-            ),
-            React.createElement(
-              "div",
-              {
-                id: "child4",
-              },
-              React.createElement("h2", {}, "i am h4 tag")
-            )
-        ]
-        
-    ),
-]
+import React from "react";
+import ReactDOM from "react-dom/client";
+/**
+ * Header
+ * - Logo
+ * - Nav Items
+ * Body
+ * - Search
+ * - RastaurentContainer
+ *   - RestaurentCard
+ *     -  img, res name, rating, cuisine, delivery time
+ * Footer 
+ * - Copyright
+ * - Links
+ * - Contact
+**/
+const Header = () => {
+  return(
+    <div className="header">
+      <div className="logo-container">
+        <img className="logo" src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png" />
+      </div>
+      <div className="nav-Items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
+    </div>
+  )
+}
+// const StyleCard = {
+//   backgroundColor: "#f0f0f0"
+// }
+const RestaurentCard = () => {
+  return(
+    <div className="res-card" style={{backgroundColor: "#f0f0f0"}}>
+      <img className="res-img" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/d96267738c19ec62acb5390e52faba41" />
+      <h3>Meghana Foods</h3>
+      <h4>Third Wave Coffee</h4>
+      <h4>4.3 *</h4>
+      <h4>38 min</h4>
+      <h4>249 Rs</h4>
+    </div>
+  )
+}
+
+const Body = () => {
+  return(
+    <div className="body">
+      <div className="search">Search</div>
+      <div className="restaurent-container">
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+      </div>
+    </div>
+  )
+}
+
+const AppLayout = () => {
+  return(
+    <div className="app">
+      <Header />
+      <Body />
+    </div>
+  )
+}
+
 let root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(<AppLayout />);
