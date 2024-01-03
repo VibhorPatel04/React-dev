@@ -34,13 +34,13 @@ const Header = () => {
 // const StyleCard = {
 //   backgroundColor: "#f0f0f0"
 // }
-const RestaurentCard = () => {
+const RestaurentCard = ({resName,rating}) => {
   return(
     <div className="res-card" style={{backgroundColor: "#f0f0f0"}}>
       <img className="res-img" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/d96267738c19ec62acb5390e52faba41" />
-      <h3>Meghana Foods</h3>
+      <h3>{resName}</h3>
       <h4>Third Wave Coffee</h4>
-      <h4>4.3 *</h4>
+      <h4>{rating}</h4>
       <h4>38 min</h4>
       <h4>249 Rs</h4>
     </div>
@@ -52,19 +52,8 @@ const Body = () => {
     <div className="body">
       <div className="search">Search</div>
       <div className="restaurent-container">
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
+        <RestaurentCard resName="Meghana Foods" rating={"4.3*"} />
+        <RestaurentCard resName="KFC" rating={"4.0*"} />
       </div>
     </div>
   )
