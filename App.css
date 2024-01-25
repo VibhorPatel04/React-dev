@@ -47,3 +47,14 @@ height: 150px;
     box-shadow: 0 0 10px #444444;
     cursor: pointer;
 }
+.filter-btn{
+    padding: 10px 20px;
+    margin: 10px;
+    background: linear-gradient(rgb(30, 0, 128),black,rgb(5, 201, 172));
+    color: #fff;
+    border-radius: 10px;
+}
+.filter-btn:hover{
+    box-shadow: 0 0 5px black;
+    cursor: pointer;
+}
