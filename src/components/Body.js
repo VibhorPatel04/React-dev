@@ -1,62 +1,34 @@
 import RestaurentCard from "./RestaurentCard";
 import resList from "../utils/mockData";
+import { useEffect, useState } from "react";
 const Body = () => {
-  let ratingList = [
-    {
-      info: {
-        id: "30199",
-        name: "Shri Ram Corner Paharghanj Ke Mashoor Choley Bhature (Shalimar Bagh)",
-        cloudinaryImageId: "rb091alr5ye61q4yocsd",
-        locality: "Shalimar Bagh",
-        areaName: "Ashok vihar",
-        costForTwo: "₹150 for two",
-        cuisines: ["Street Food"],
-        avgRating: 4.6,
-        veg: true,
-        parentId: "16671",
-        avgRatingString: "4.6",
-        totalRatingsString: "5K+",
-      },
-    },
-    {
-      info: {
-        id: "15846",
-        name: "Faasos - Wraps, Rolls & Shawarma",
-        cloudinaryImageId: "af33b81798b11deba338e94b7585d348",
-        locality: "Sector 8",
-        areaName: "Rohini",
-        costForTwo: "₹200 for two",
-        cuisines: [
-          "Kebabs",
-          "Fast Food",
-          "Snacks",
-          "American",
-          "Healthy Food",
-          "Desserts",
-          "Beverages",
-        ],
-        avgRating: 4.3,
-        parentId: "21809",
-        avgRatingString: "4.3",
-        totalRatingsString: "10K+",
-      },
-    },
-  ];
+  const [listOfRestaurent, setListOfRestaurent] = useState(resList);
+  useEffect(()=>{
+    fetchData();
+  },[]);
+  const fetchData = async () =>{
+    const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
+    const json = await data.json();
+    console.log(json);
+
+    //optional Chaining
+    setListOfRestaurent(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+  }
   return (
     <div className="body">
       <div className="filter">
         <button
           className="filter-btn"
           onClick={() => {
-            ratingList = ratingList.filter((res) => res.info.avgRating > 4.2);
-            console.log(ratingList);
+            const filteredList = listOfRestaurent.filter((res) => res.info.avgRating > 4.2);
+            setListOfRestaurent(filteredList);
           }}
         >
           Top Rated Restaurents
         </button>
       </div>
       <div className="restaurent-container">
-        {resList.map((restaurent) => {
+        {listOfRestaurent.map((restaurent) => {
           return (
             <RestaurentCard key={restaurent.info.id} resData={restaurent} />
           );
