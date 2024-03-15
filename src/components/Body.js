@@ -2,6 +2,7 @@ import RestaurentCard from "./RestaurentCard";
 import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./shimmer";
+import { Link } from "react-router-dom";
 const Body = () => {
   const [listOfRestaurent, setListOfRestaurent] = useState([]);
   const [filterRes, setFilterRes] = useState([]);
@@ -16,7 +17,6 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json);
 
     //optional Chaining
     setListOfRestaurent(
@@ -72,7 +72,7 @@ const Body = () => {
       <div className="restaurent-container">
         {filterRes.map((restaurent) => {
           return (
-            <RestaurentCard key={restaurent.info.id} resData={restaurent} />
+            <Link key={restaurent.info.id} to={"/restaurents/"+restaurent.info.id} > <RestaurentCard  resData={restaurent} /></Link>
           );
         })}
       </div>

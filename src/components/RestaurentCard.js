@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { CDN_URl } from "../utils/constant";
 
 const RestaurentCard = (props) => {
