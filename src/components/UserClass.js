@@ -1,23 +1,35 @@
 import React from "react";
 
 class UserClass extends React.Component {
-    constructor (props){
-        super(props);
-        this.state = {
-            count : 2,
-            count2 : 3,
-        }
-    }
-    render(){
-        return(
-            <div>
-                <h3>Name: {this.props.name}</h3>
-                <h3>Count: {this.state.count}</h3>
-                <h3>Count: {this.state.count2}</h3>
-                <h3>Location: {this.props.location}</h3>
-                <h3>Date: 14/03/2024</h3>
-            </div>
-        )
-    }
-} 
+  constructor(props) {
+    super(props);
+    this.state = {
+      userInfo : {
+        id: 1,
+        name: "xxxx",
+        avatar_url : "jsdfisf",
+      }
+    };
+    // console.log("child constructor called");
+  }
+  async componentDidMount() {
+    // console.log("child componentDidMount called");
+    const data = await fetch("https://api.github.com/users/VibhorPatel04");
+    const json = await data.json();
+    console.log(json)
+    this.setState({
+      userInfo : json,
+    })
+  }
+  render() {
+    // console.log("child render called");
+    return (
+      <div>
+              <h3>Id: {this.state.userInfo.id}</h3>
+              <h3>Name: {this.state.userInfo.name}</h3>
+              <img src={this.state.userInfo.avatar_url} />
+      </div>
+    );
+  }
+}
 export default UserClass;
