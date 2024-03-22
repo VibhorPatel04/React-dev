@@ -41,17 +41,18 @@ const Body = () => {
   return listOfRestaurent.length == 0 ? (
     <Shimmer /> 
   ) : (
-    <div className="body">
+    <div className="p-6 bg-gray-100">
       <div className="btn_group">
         <div className="search-div">
           <input
             type="search"
-            className="search-box"
+            placeholder="Search for anything..."
+            className="placeholder:italic placeholder:text-slate-400  bg-white  border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
           <button
-            className="login-btn"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             onClick={() => {
               const filterRes = listOfRestaurent.filter(
                 (res) =>
@@ -62,22 +63,22 @@ const Body = () => {
           >
             search
           </button>
-        </div>
-        <div className="filter">
-          <button
-            className="filter-btn"
-            onClick={() => {
-              const filteredList = listOfRestaurent.filter(
-                (res) => res.info.avgRating > 4.2
-              );
-              setListOfRestaurent(filteredList);
-            }}
-          >
-            Top Rated Restaurents
-          </button>
+          <div className="inline ps-10">
+            <button
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              onClick={() => {
+                const filteredList = listOfRestaurent.filter(
+                  (res) => res.info.avgRating > 4.2
+                );
+                setListOfRestaurent(filteredList);
+              }}
+            >
+              Top Rated Restaurents
+            </button>
+          </div>
         </div>
       </div>
-      <div className="restaurent-container">
+      <div className="mt-5 grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-5">
         {filterRes.map((restaurent) => {
           return (
             <Link key={restaurent.info.id} to={"/restaurents/"+restaurent.info.id} > <RestaurentCard  resData={restaurent} /></Link>
