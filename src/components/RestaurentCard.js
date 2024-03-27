@@ -21,4 +21,18 @@ const RestaurentCard = (props) => {
       </div>
     );
   };
+
+  // Hingher order function
+
+  export const withPromotedLabel = (RestaurentCard) =>{
+    return (props)=>{
+      return(
+        <div className="relative">
+          <label className="absolute bg-black text-white left-4 top-3 p-1">Promoted</label>
+          <RestaurentCard {...props} />
+        </div>
+      )
+    }
+  }
+
   export default RestaurentCard;
