@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { CDN_URl } from "../utils/constant";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const RestaurentCard = (props) => {
     const { resData } = props;
     const {cloudinaryImageId, name, cuisines, avgRating,deliveryTime, costForTwo} = resData?.info;
+    const {loggedInUser} = useContext(UserContext)
     return (
       <div className="bg-white hover:bg-green-200 rounded-sm p-4">
         <img
@@ -18,6 +21,7 @@ const RestaurentCard = (props) => {
         <h4 className="text-lg font-semibold mb-2">{avgRating}*</h4>
         {/* <h4>{deliveryTime} min</h4> */}
         <h4 className="text-lg font-semibold mb-2 text-green-600">{costForTwo}</h4>
+        <h4 className="text-lg font-semibold mb-2 ">User: {loggedInUser}</h4>
       </div>
     );
   };

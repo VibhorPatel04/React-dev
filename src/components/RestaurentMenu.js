@@ -36,7 +36,7 @@ const RestaurentMenu = () => {
       <ul>
         { categories.map((category,index) => {
           return (
-            <RestaurentCategory dummy={dummy} setShowIndex={()=> setShowIndex(index)} showItems={index === showIndex && true } key={category?.card?.card?.title} data={category?.card?.card} />
+            <RestaurentCategory key={category?.card?.card?.title} dummy={dummy} setShowIndex={()=> setShowIndex(index)} showItems={index === showIndex && true }  data={category?.card?.card} />
           );
         })}
       </ul>
