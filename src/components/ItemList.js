@@ -5,8 +5,8 @@ const ItemList = ({ items }) => {
             {
                 items.map((item) => {
                     return(
-                        <div className="mb-8  text-start p-3 w-6/12 mx-auto border-2 border-lightgray-500 rounded-lg">
-                            <div className=" flex gap-2 justify-between items-center relative" key={item.card.info.id}>
+                        <div key={item.card.info.id}  className="mb-8  text-start p-3 w-6/12 mx-auto border-2 border-lightgray-500 rounded-lg">
+                            <div className=" flex gap-2 justify-between items-center relative" >
                                 <div>
                                     <h6 className="text-md font-bold">{item?.card?.info?.name}</h6>
                                     <p className="font-bold text-green-700">₹{item?.card?.info?.price/100}</p>
