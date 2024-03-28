@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurentCategory = ({ data, showItems, setShowIndex }) =>{
+const RestaurentCategory = ({ data, showItems, setShowIndex, dummy }) =>{
 
     if (!data || !data.title) {
         return null; 
@@ -16,7 +16,7 @@ const RestaurentCategory = ({ data, showItems, setShowIndex }) =>{
             <span className="font-bold text-lg">{data.title} ({data.itemCards.length})</span>
             <span>{showItems ? "⬆️" : "⬇️"}</span>
         </div>
-        {showItems && <ItemList items = {data.itemCards} />}
+        {showItems && <ItemList dummy={dummy} items = {data.itemCards} />}
         
         </>
         

@@ -9,6 +9,7 @@ const RestaurentMenu = () => {
   const [showIndex, setShowIndex] = useState(0);
 
   const resMenu = useRestaurentMenu(resId);
+  const dummy = "dummy data";
 
   if (resMenu === null) {
     return <Shimmer />;
@@ -35,7 +36,7 @@ const RestaurentMenu = () => {
       <ul>
         { categories.map((category,index) => {
           return (
-            <RestaurentCategory setShowIndex={()=> setShowIndex(index)} showItems={index === showIndex && true } key={category?.card?.card?.title} data={category?.card?.card} />
+            <RestaurentCategory dummy={dummy} setShowIndex={()=> setShowIndex(index)} showItems={index === showIndex && true } key={category?.card?.card?.title} data={category?.card?.card} />
           );
         })}
       </ul>
