@@ -53,3 +53,16 @@ import {component} "file path";
 (Normal js Utility Functions)
 - useState() - Superpowerful state variables in react
 - useEffect
+
+# 2 types Routing in web apps
+- client side Routing
+- server side Routing
+
+
+# Redux Toolkit
+- install @reduxjs/toolkit and react-redux
+- Build Our Store
+- Connect Our store to our App
+- Slice (cart slice)
+- Dispatch(action)
+- Selector(read the data)
