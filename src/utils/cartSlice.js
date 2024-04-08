@@ -7,6 +7,14 @@ const cardSlice = createSlice({
     },
     reducers : {
         addItem : (state, action) =>{
+            // vanilla(older) Redux => Don't Mutate the state, returning was mandatory
+            // const newState = [...state];
+            // newState.items.push(action.payload);
+            // return newState;  
+
+            
+            // Redux toolkit
+            // we have to mutate the state
             // mutating the state over here 
             state.items.push(action.payload)
         },
