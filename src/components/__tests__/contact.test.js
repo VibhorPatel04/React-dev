@@ -20,7 +20,6 @@ describe("Contact us page test cases", () => {
     render(<Contact />);
 
     const inputBoxs = screen.getAllByRole("textbox");
-    console.log(inputBoxs.length);
     //Assertion
 
     expect(inputBoxs.length).toBe(3);

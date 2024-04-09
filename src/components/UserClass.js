@@ -27,7 +27,7 @@ class UserClass extends React.Component {
       <div>
               <h3>Id: {this.state.userInfo.id}</h3>
               <h3>Name: {this.state.userInfo.name}</h3>
-              <img src={this.state.userInfo.avatar_url} />
+              <img className="w-40 mx-auto mt-4" src={this.state.userInfo.avatar_url} />
       </div>
     );
   }

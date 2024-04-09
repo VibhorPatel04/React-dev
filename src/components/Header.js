@@ -12,9 +12,6 @@ const Header = () => {
 
   // subscribing to the store using a selector 
  const cartItems = useSelector((store)=> store.cart.items);
- console.log(cartItems);
-  
-  console.log("header Render");
     return (
       <div className="flex items-center  justify-between px-6 bg-gray-100 drop-shadow-md">
         <div className="logo-container">

@@ -13,15 +13,15 @@ class About extends React.Component {
   
   render() {
     return (
-      <div className="about-div">
-        <h1>About</h1>
-        <div>
+      <div className="about-div text-center p-4">
+        <h1 className="text-2xl font-bold">About</h1>
+        <div className="p-2">
         <UserContext.Consumer>
-            {(value) =><h3 className="font-bold">loggedInUser : {value.loggedInUser}</h3>}
+            {(value) =><h3 className="font-bold text-xl">loggedInUser : {value.loggedInUser}</h3>}
           </UserContext.Consumer>
         </div>
         <h2>This is about page</h2>
-        <User name={"Vibhor Patel"} location={"Anuppur"} />
+        <User  name={"Vibhor Patel"} location={"Anuppur"} />
         <UserClass  />
       </div>
     );
