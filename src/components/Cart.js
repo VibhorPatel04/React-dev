@@ -35,7 +35,7 @@ const Cart = () => {
       </button>
       }
       <div className="mt-5">
-        <ItemList items={cartItems} />
+        <ItemList  items={cartItems} />
       </div>
     </div>
   );

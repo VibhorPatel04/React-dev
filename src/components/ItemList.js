@@ -12,7 +12,7 @@ const ItemList = ({ items, dummy }) => {
     <div>
       {items.map((item) => {
         return (
-          <div
+          <div data-testid= "foodItems"
             key={item.card.info.id}
             className="mb-8  text-start p-3 w-6/12 mx-auto border-2 border-lightgray-500 rounded-lg"
           >
@@ -29,7 +29,7 @@ const ItemList = ({ items, dummy }) => {
                 src={CDN_URl + item?.card?.info?.imageId}
               />
               <button onClick={()=>handleAddItem(item)} className="absolute right-4  me-2 mb-0  bottom-1 bg-black px-2.5 py-1 text-white hover:bg-blue-700 hover:text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm  focus:outline-none dark:focus:ring-blue-800">
-                Add +{" "}
+                Add +
               </button>
             </div>
           </div>
